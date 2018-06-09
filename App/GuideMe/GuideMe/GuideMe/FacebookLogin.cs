@@ -1,4 +1,5 @@
 ﻿/*using GuideMe;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,6 +7,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+
 
 namespace GuideMe
 {
@@ -17,7 +19,7 @@ namespace GuideMe
         {
             NavigationPage.SetHasNavigationBar(this, false);
             string baseURI = "https://www.facebook.com/v2.8/dialog/oauth?";
-            string id_cliente = "client_id=" + "";
+            string id_cliente = "client_id=" + "";/////////
             string scope = "&scope=email";
             string responseType = "&response_type=token";
             string redirect_uri = "&redirect_uri=https://www.facebook.com/connect/login_success.html";
@@ -142,5 +144,4 @@ namespace GuideMe
         public string id { get; set; }
         public string email { get; set; }
     }
-}
-*/
+}*/

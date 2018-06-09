@@ -29,6 +29,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Menu.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MenuStack.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Settings.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tags.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Title.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Travel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)TravelLocations.cs" />
