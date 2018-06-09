@@ -18,6 +18,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Explore.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)FacebookLogin.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Home.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>

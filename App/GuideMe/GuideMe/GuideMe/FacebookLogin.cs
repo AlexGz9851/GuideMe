@@ -1,4 +1,4 @@
-﻿using GuideMe;
+﻿/*using GuideMe;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,7 +36,7 @@ namespace GuideMe
             //Checamos que el usuario se haya logueado bien con facebook
             if (e.Result == WebNavigationResult.Failure || e.Result == WebNavigationResult.Timeout)
             {
-                await DisplayAlert("Error", "Facebook no tiene internte con el cual trabajar", "Ok");
+                await DisplayAlert("Error", "Facebook no tiene internet con el cual trabajar", "Ok");
                 await Navigation.PopAsync();
             }
             if (e.Url.Contains("error_reason=user_denied"))
@@ -143,3 +143,4 @@ namespace GuideMe
         public string email { get; set; }
     }
 }
+*/

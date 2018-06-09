@@ -115,6 +115,12 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\travels_light.png" />
   </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\GuideMePNG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\GuideMeLogo.png" />
+  </ItemGroup>
   <Import Project="..\GuideMe\GuideMe.projitems" Label="Shared" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

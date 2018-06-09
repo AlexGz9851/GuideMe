@@ -13,7 +13,7 @@ using Android.Widget;
 
 namespace GuideMe.Droid
 {
-    [Activity(Label = "GuideMe", Icon = "@drawable/logo", Theme = "@style/Splash", NoHistory = true, MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation,
+    [Activity(Label = "GuideMe", Icon = "@drawable/GuideMeLogo", Theme = "@style/Splash", NoHistory = true, MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation,
         ScreenOrientation = ScreenOrientation.Portrait)]
     public class SplashActivity : global::Xamarin.Forms.Platform.Android.FormsApplicationActivity
     {
