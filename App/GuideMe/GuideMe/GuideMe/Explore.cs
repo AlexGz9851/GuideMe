@@ -13,6 +13,11 @@ namespace GuideMe
         {
             NavigationPage.SetHasNavigationBar(this, false);
 
+            StackLayout stackContent = new StackLayout
+            {
+                BackgroundColor = Color.White,
+                VerticalOptions = LayoutOptions.FillAndExpand,
+            };
             StackLayout stacklayoutPrimaryContent = new StackLayout
             {
                 Padding = 5,
@@ -20,6 +25,7 @@ namespace GuideMe
                 Children =
                 {
                     new Title("EXPLORE"),
+                    stackContent,
                     new Menu ("Exp")
                 }
             };

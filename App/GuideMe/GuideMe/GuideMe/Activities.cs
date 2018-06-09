@@ -18,6 +18,9 @@ namespace GuideMe
                 BackgroundColor = Color.White,
                 VerticalOptions = LayoutOptions.FillAndExpand,
             };
+            stackContent.Children.Add(new GridLocation("Sandra's Coffee", "http://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png", "https://www.google.com/maps/search/?api=1&query=51.8448409802915,0.7337046802915023&query_place_id=ChIJT4UQE87i2EcRFJ_YpbfTQQA", "4.5"));
+            stackContent.Children.Add(new GridLocation("Starbucks Coffee", "http://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png", "https://www.google.com/maps/search/?api=1&query=51.8448409802915,0.7337046802915023&query_place_id=ChIJT4UQE87i2EcRFJ_YpbfTQQA", "4.5"));
+            stackContent.Children.Add(new GridLocation("Library", "http://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png", "https://www.google.com/maps/search/?api=1&query=51.8448409802915,0.7337046802915023&query_place_id=ChIJT4UQE87i2EcRFJ_YpbfTQQA", "4.5"));
 
             StackLayout stacklayoutPrimaryContent = new StackLayout
             {
@@ -25,7 +28,7 @@ namespace GuideMe
                 BackgroundColor = Color.White,
                 Children =
                 {
-                    new Title("ACTIVITIES"),
+                    new Title("LOCATIONS"),
                     stackContent,
                     new Menu("Act")
                 }
