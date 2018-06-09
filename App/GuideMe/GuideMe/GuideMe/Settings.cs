@@ -7,17 +7,11 @@ using Xamarin.Forms;
 
 namespace GuideMe
 {
-    public class Activities: ContentPage 
+    public class Settings : ContentPage
     {
-        public Activities()
+        public Settings()
         {
             NavigationPage.SetHasNavigationBar(this, false);
-
-            StackLayout stackContent = new StackLayout
-            {
-                BackgroundColor = Color.White,
-                VerticalOptions = LayoutOptions.FillAndExpand,
-            };
 
             StackLayout stacklayoutPrimaryContent = new StackLayout
             {
@@ -25,9 +19,8 @@ namespace GuideMe
                 BackgroundColor = Color.White,
                 Children =
                 {
-                    new Title("ACTIVITIES"),
-                    stackContent,
-                    new Menu("Act")
+                    new Title("SETTINGS"),
+                    new Menu ("Set")
                 }
             };
             Content = stacklayoutPrimaryContent;
