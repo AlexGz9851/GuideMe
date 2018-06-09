@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>{FE69F8F1-7D30-4B49-BDA9-50C25EC9DA5C}</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>GuideMe</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)App.xaml" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)MainPage.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Home.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)logo.png" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Images\acts_dark.png" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Images\acts_light.png" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Images\explore_dark.png" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Images\explore_light.png" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Images\logo.png" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Images\settings_dark.png" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Images\settings_light.png" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Images\travels_dark.png" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Images\travels_light.png" />
+  </ItemGroup>
+</Project>
