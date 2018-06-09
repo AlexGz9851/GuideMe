@@ -3,6 +3,7 @@ from django.http import HttpResponse,JsonResponse
 from django.shortcuts import render, Http404, redirect, reverse
 from server.is_post import is_not_post_raise404
 from django.views.decorators.csrf import csrf_exempt
+from .models import User, Tag
 
 # def index(request):
 #     if is_post(request):
@@ -12,14 +13,27 @@ from django.views.decorators.csrf import csrf_exempt
 @csrf_exempt
 def login(request):
     is_not_post_raise404(request)
-    #If is in database the social network user id and social network id return the user data
-    #If not request to the social network graph api for the user info-photos and submit them to watson to obtain the user tags
-    return JsonResponse({"social_network_user_id":request.POST['social_network_user_id'], "token":request.POST['token'], "social_network_id":request.POST['social_network_id']})
+    try:
+        user = User.objects.get(social_network_user_id=request.POST['social_network_user_id'],social_network_id=request.POST['social_network_id'])
+    except User.DoesNotExist:
+        user = User(social_network_user_id=empty_string_is_null(request.POST['social_network_user_id']), social_network_id=empty_string_is_null(request.POST['social_network_id']), token=empty_string_is_null(request.POST['token']))
+        # Add the facebook graph implementation
+        # TODO Add here the implementation to obtain the tags from the machine learning API
+        user.save()
+        tags = list(Tag.objects.values_list('id', flat=True))
+        for tag in tags:
+            user.tags.add(Tag.objects.get(id=tag))
+        
+    return JsonResponse({"social_network_user_id":user.social_network_user_id, "token":user.token, "social_network_id":user.social_network_id})
     
 
 @csrf_exempt
 def logout(request):
     is_not_post_raise404(request)
-    # Remove from database the token of the user
+    user = User.objects.get(id=request.POST['id'])
+    user.token = None
+    user.save()
     return JsonResponse({"id":request.POST['id']})
     
+def empty_string_is_null(string):
+    return (None if string == "" else string)
