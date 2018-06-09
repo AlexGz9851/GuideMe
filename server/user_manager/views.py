@@ -43,7 +43,7 @@ def login(request):
         for tag in tags:
             user.tags.add(Tag.objects.get(id=tag))
         
-    return JsonResponse({"social_network_user_id":user.social_network_user_id, "token":user.token, "social_network_id":user.social_network_id})
+    return JsonResponse({"social_network_user_id":user.social_network_user_id, "token":user.token, "social_network_id":user.social_network_id, 'tags':tags})
     
 
 @csrf_exempt
