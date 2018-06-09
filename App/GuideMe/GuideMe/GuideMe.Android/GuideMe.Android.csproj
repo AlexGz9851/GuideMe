@@ -124,6 +124,9 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\estrella.png" />
   </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\GoogleMapsIcon.png" />
+  </ItemGroup>
   <Import Project="..\GuideMe\GuideMe.projitems" Label="Shared" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

@@ -8,23 +8,29 @@ namespace GuideMe
     public class GridLocation : StackLayout
     {
         public Image imageBall;
-        public Button GoogleM;
+        public Label GoogleM;
         public Label NameLoc;
         public Label lblRaiting;
         public Image imageStar;
         public StackLayout stkRaiting;
+        public StackLayout stkBtn;
         public Grid gridLoc;
+        public Image GoogleIcon;
+        public TapGestureRecognizer tapLogo;
         public GridLocation(string Name, string urlImage, string urlLoc, string raiting)
         {
             imageBall = new Image();
-            GoogleM = new Button();
+            GoogleM = new Label();
             NameLoc = new Label();
             lblRaiting = new Label();
             imageStar = new Image();
             stkRaiting = new StackLayout();
+            stkBtn = new StackLayout();
             gridLoc = new Grid();
+            tapLogo = new TapGestureRecognizer();
+            GoogleIcon = new Image();
 
-            BackgroundColor= Color.FromHex("#BADFEC");
+            BackgroundColor = Color.FromHex("#BADFEC");
             Padding = 2;
 
             gridLoc.RowSpacing = 10;
@@ -40,7 +46,19 @@ namespace GuideMe
             GoogleM.Text = "OPEN IN MAPS";
             GoogleM.TextColor = Color.FromRgb(53, 116, 170);
             GoogleM.BackgroundColor = Color.White;
-            GoogleM.Clicked += (s, e) => GoogleM_Clicked(s, e, urlLoc);
+
+            GoogleIcon.Source = "GoogleMapsIcon.png";
+            GoogleIcon.HeightRequest = 15;
+            GoogleIcon.VerticalOptions = LayoutOptions.CenterAndExpand;
+
+            stkBtn.Orientation = StackOrientation.Horizontal;
+            stkBtn.HorizontalOptions = LayoutOptions.CenterAndExpand;
+            stkBtn.BackgroundColor = Color.White;
+            stkBtn.Children.Add(GoogleM);
+            stkBtn.Children.Add(GoogleIcon);
+            stkBtn.GestureRecognizers.Add(tapLogo);
+
+            tapLogo.Tapped += (s, e) => GoogleM_Tapped(s, e, urlLoc);
 
             NameLoc.Text = Name;
             NameLoc.TextColor = Color.FromRgb(53, 116, 170);
@@ -71,15 +89,16 @@ namespace GuideMe
 
             gridLoc.Children.Add(NameLoc, 0, 1, 0, 1);
             gridLoc.Children.Add(imageBall, 1, 2, 0, 1);
-            gridLoc.Children.Add(GoogleM, 0, 1, 1, 2);
+            gridLoc.Children.Add(stkBtn, 0, 1, 1, 2);
             gridLoc.Children.Add(stkRaiting, 1, 2, 1, 2);
 
+            Margin = 5;
             Children.Add(gridLoc);
 
             //imageBall.Source = ImageSource.FromUri(new Uri("http://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png"));
         }
 
-        private void GoogleM_Clicked(object sender, EventArgs e, string url)
+        private void GoogleM_Tapped(object sender, EventArgs e, string url)
         {
             Device.OpenUri(new Uri(url));
         }
