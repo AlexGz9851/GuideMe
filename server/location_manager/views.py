@@ -49,8 +49,11 @@ def save_travel(request):
     
     t = Travel(id_user=request.POST['id'], name=request.POST['name'], start=request.POST['start'], end=request.POST['end'])
     t.save()
+    places = request.POST.get('selected_places').split(",")
+    some = []
     for location in request.session['results']:
-        if(location['place_id'] in request.POST.get('selected_places')):
+        some.append(location['place_id'])
+        if location['place_id'] in places:
             l = Location(
                          id_travel=t.id, 
                          name=location['name'], 
@@ -61,7 +64,7 @@ def save_travel(request):
                         )
             l.save()
     request.session['results'] = []
-    return JsonResponse({"ok":request.POST.get('selected_places')})
+    return JsonResponse({"ok":"ok"})
     
 
 def obtain_locations_page(request, page):
