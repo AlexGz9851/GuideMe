@@ -13,13 +13,26 @@
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)MainPage.xaml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)BackBtnTitle.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GridTravel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Locations.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Explore.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)FacebookLogin.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GridLocation.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Home.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Menu.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MenuStack.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Settings.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tags.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Title.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Travel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TravelLocations.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)logo.png" />
