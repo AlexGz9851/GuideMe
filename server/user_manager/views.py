@@ -1,3 +1,5 @@
+import requests
+import json
 from django.shortcuts import render
 from django.http import HttpResponse,JsonResponse
 from django.shortcuts import render, Http404, redirect, reverse
@@ -17,7 +19,24 @@ def login(request):
         user = User.objects.get(social_network_user_id=request.POST['social_network_user_id'],social_network_id=request.POST['social_network_id'])
     except User.DoesNotExist:
         user = User(social_network_user_id=empty_string_is_null(request.POST['social_network_user_id']), social_network_id=empty_string_is_null(request.POST['social_network_id']), token=empty_string_is_null(request.POST['token']))
-        # Add the facebook graph implementation
+        # Facebook graph implementation
+        imgs = []
+        url = "https://graph.facebook.com/v3.0/"+user.social_network_user_id+"/photos"
+        jsonGraph = requests.get(url,
+                                    params = {
+                                    'access_token':user.token,
+                                    'fields':"picture", 
+                                    'limit':100
+                                    }
+                                ).json()
+        for p in jsonGraph["data"]:
+            imgs.append(p['picture'])
+        while "next" in jsonGraph:
+            jsonGraph = request().get(jsonGraph["next"])
+            for p in jsonGraph["data"]:
+                imgs.append(p['picture'])
+
+                                
         # TODO Add here the implementation to obtain the tags from the machine learning API
         user.save()
         tags = list(Tag.objects.values_list('id', flat=True))
