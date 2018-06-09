@@ -33,14 +33,14 @@ namespace GuideMe
             lblNameLoc.TextColor = Color.White;
             lblNameLoc.FontSize = 24;
             lblNameLoc.VerticalOptions = LayoutOptions.CenterAndExpand;
-            lblNameLoc.HorizontalOptions = LayoutOptions.Start;
-            lblNameLoc.HorizontalTextAlignment = TextAlignment.Center;
+            lblNameLoc.HorizontalOptions = LayoutOptions.StartAndExpand;
+            lblNameLoc.HorizontalTextAlignment = TextAlignment.Start;
 
             lblTime.Text = TimeLoc;
             lblTime.TextColor = Color.White;
             lblTime.FontSize = 16;
             lblTime.VerticalOptions = LayoutOptions.CenterAndExpand;
-            lblTime.HorizontalOptions = LayoutOptions.End;
+            lblTime.HorizontalOptions = LayoutOptions.EndAndExpand;
             lblTime.HorizontalTextAlignment = TextAlignment.Center;
 
         }
