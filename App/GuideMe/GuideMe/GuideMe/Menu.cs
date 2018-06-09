@@ -26,7 +26,7 @@ namespace GuideMe
 
             string img1, est1, img2, est2, img3, est3, img4, est4;
 
-            if (estado == "Act")
+            if (estado == "Loc")
             {
                 img1 = "acts_dark.png";
                 est1 = "Si";
@@ -68,7 +68,7 @@ namespace GuideMe
                 est4 = "No";
             }
             
-            MenuStack Opc1 = new MenuStack("activities", img1, est1, "activities");
+            MenuStack Opc1 = new MenuStack("locations", img1, est1, "locations");
             MenuStack Opc2 = new MenuStack("explore", img2, est2, "explore");
             MenuStack Opc3 = new MenuStack("travels", img3, est3, "travels");
             MenuStack Opc4 = new MenuStack("settings", img4, est4, "settings");

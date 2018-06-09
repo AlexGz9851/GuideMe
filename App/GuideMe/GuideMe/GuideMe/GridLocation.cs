@@ -92,7 +92,7 @@ namespace GuideMe
             gridLoc.Children.Add(stkBtn, 0, 1, 1, 2);
             gridLoc.Children.Add(stkRaiting, 1, 2, 1, 2);
 
-            Margin = 5;
+            Margin = 10;
             Children.Add(gridLoc);
 
             //imageBall.Source = ImageSource.FromUri(new Uri("http://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png"));

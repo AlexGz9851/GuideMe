@@ -19,6 +19,11 @@ namespace GuideMe
                 VerticalOptions = LayoutOptions.FillAndExpand,
             };
 
+            stackContent.Children.Add(new GridTravel("Guadalajara", "2018/05/12"));
+            stackContent.Children.Add(new GridTravel("Monterrey", "2018/05/24"));
+            stackContent.Children.Add(new GridTravel("Guanajuato", "2018/06/8"));
+            stackContent.Children.Add(new GridTravel("Culiacan", "2018/06/15"));
+
             StackLayout stacklayoutPrimaryContent = new StackLayout
             {
                 Padding = 5,

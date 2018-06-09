@@ -13,7 +13,9 @@
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)MainPage.xaml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)Activities.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)BackBtnTitle.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GridTravel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Locations.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
@@ -29,6 +31,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Settings.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Title.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Travel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TravelLocations.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)logo.png" />

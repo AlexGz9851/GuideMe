@@ -53,7 +53,7 @@ namespace GuideMe
 
         private async void BtnFacebookLogin_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new Activities(), true);
+            await Navigation.PushAsync(new Locations(), true);
         }
     }
 }

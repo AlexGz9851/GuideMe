@@ -42,8 +42,8 @@ namespace GuideMe
         
         private async void TapGestureRecognizer_Tapped(object sender, EventArgs e, string opc, string estado)
         {
-            if (opc == "activities" && estado == "No")
-                await Navigation.PushAsync(new Activities(), true);
+            if (opc == "locations" && estado == "No")
+                await Navigation.PushAsync(new Locations(), true);
             else if (opc == "explore" && estado == "No")
                 await Navigation.PushAsync(new Explore(), true);
             else if (opc == "travels" && estado == "No")
