@@ -51,9 +51,9 @@ namespace GuideMe
             Content = stacklayoutPrimaryContent;
         }
 
-        private void BtnFacebookLogin_Clicked(object sender, EventArgs e)
+        private async void BtnFacebookLogin_Clicked(object sender, EventArgs e)
         {
-            //await Navigation.PushAsync(new FacebookLogin(), true);
+            await Navigation.PushAsync(new Activities(), true);
         }
     }
 }
