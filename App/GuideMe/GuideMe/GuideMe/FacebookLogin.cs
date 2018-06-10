@@ -1,4 +1,4 @@
-﻿/*using GuideMe;
+﻿using GuideMe;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -13,13 +13,17 @@ namespace GuideMe
 {
     public class FacebookLogin : ContentPage
     {
-        ActivityIndicator actIndicator = new ActivityIndicator() { HorizontalOptions = LayoutOptions.CenterAndExpand, VerticalOptions = LayoutOptions.CenterAndExpand, Color = Color.FromRgb(53, 116, 170)
-    };
+        ActivityIndicator actIndicator = new ActivityIndicator()
+        {
+            HorizontalOptions = LayoutOptions.CenterAndExpand,
+            VerticalOptions = LayoutOptions.CenterAndExpand,
+            Color = Color.FromRgb(53, 116, 170)
+        };
         public FacebookLogin()
         {
             NavigationPage.SetHasNavigationBar(this, false);
             string baseURI = "https://www.facebook.com/v2.8/dialog/oauth?";
-            string id_cliente = "client_id=" + "";/////////
+            string id_cliente = "client_id=" + "155371731806629";
             string scope = "&scope=email";
             string responseType = "&response_type=token";
             string redirect_uri = "&redirect_uri=https://www.facebook.com/connect/login_success.html";
@@ -38,7 +42,7 @@ namespace GuideMe
             //Checamos que el usuario se haya logueado bien con facebook
             if (e.Result == WebNavigationResult.Failure || e.Result == WebNavigationResult.Timeout)
             {
-                await DisplayAlert("Error", "Facebook no tiene internet con el cual trabajar", "Ok");
+                await DisplayAlert("Error", "Facebook no tiene conexión a  internet", "Ok");
                 await Navigation.PopAsync();
             }
             if (e.Url.Contains("error_reason=user_denied"))
@@ -57,7 +61,6 @@ namespace GuideMe
             };
             actIndicator.IsRunning = true;
             var result = await GetFacebookProfileAsync(accesToken);
-            CreateFAcebookAccount(result);
         }
 
         //Obtenemos el token de acceso de facebook
@@ -86,7 +89,7 @@ namespace GuideMe
         }
 
         //Creamos la cuenta del usuario en base a los datos retornados por facebook, el usuario es el correo y la contraseña pasara a ser el ID del usuario
-        public async void CreateFAcebookAccount(FacebookStructure structure)
+        /*public async void CreateFAcebookAccount(FacebookStructure structure)
         {
             var user = new UserModel();
             string avatar = "https://graph.facebook.com/v2.8/" + structure.id + "/picture?width=1920";
@@ -133,15 +136,15 @@ namespace GuideMe
                 await Navigation.PushModalAsync(new Home());
             }
         }
-
     }
-
-    public class FacebookStructure
-    {
-        public string name { get; set; }
-        public string gender { get; set; }
-        public bool is_verified { get; set; }
-        public string id { get; set; }
-        public string email { get; set; }
+    */
+        public class FacebookStructure
+        {
+            public string name { get; set; }
+            public string gender { get; set; }
+            public bool is_verified { get; set; }
+            public string id { get; set; }
+            public string email { get; set; }
+        }
     }
-}*/
+}
