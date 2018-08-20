@@ -10,28 +10,27 @@ namespace GuideMe
         public Label lblNameLoc;
         public Label lblTime;
         public TapGestureRecognizer tapLoc;
+        public Image imagePlace;
 
-        public GridTravel(string NameLoc, string TimeLoc)
+        public GridTravel(string urlCity, string NameLoc, string TimeLoc)
         {
             lblNameLoc = new Label();
             lblTime = new Label();
             tapLoc = new TapGestureRecognizer();
+            imagePlace = new Image();
 
             BackgroundColor = Color.FromRgb(53, 116, 170);
             Margin = 10;
             Padding = 2;
 
-            Orientation = StackOrientation.Horizontal;
-            HorizontalOptions = LayoutOptions.FillAndExpand;
-            Children.Add(lblNameLoc);
-            Children.Add(lblTime);
-            GestureRecognizers.Add(tapLoc);
-
-            tapLoc.Tapped += (s,e) => TapLoc_Tapped(s,e,NameLoc,TimeLoc);
+            imagePlace.Source = ImageSource.FromUri(new Uri(urlCity));
+            imagePlace.HeightRequest = 150;
+            imagePlace.HorizontalOptions = LayoutOptions.CenterAndExpand;
+            imagePlace.VerticalOptions = LayoutOptions.CenterAndExpand;
 
             lblNameLoc.Text = NameLoc;
             lblNameLoc.TextColor = Color.White;
-            lblNameLoc.FontSize = 24;
+            lblNameLoc.FontSize = 32;
             lblNameLoc.VerticalOptions = LayoutOptions.CenterAndExpand;
             lblNameLoc.HorizontalOptions = LayoutOptions.StartAndExpand;
             lblNameLoc.HorizontalTextAlignment = TextAlignment.Start;
@@ -40,8 +39,17 @@ namespace GuideMe
             lblTime.TextColor = Color.White;
             lblTime.FontSize = 16;
             lblTime.VerticalOptions = LayoutOptions.CenterAndExpand;
-            lblTime.HorizontalOptions = LayoutOptions.EndAndExpand;
+            lblTime.HorizontalOptions = LayoutOptions.StartAndExpand;
             lblTime.HorizontalTextAlignment = TextAlignment.Center;
+
+            Orientation = StackOrientation.Vertical;
+            HorizontalOptions = LayoutOptions.FillAndExpand;
+            Children.Add(imagePlace);
+            Children.Add(lblNameLoc);
+            Children.Add(lblTime);
+            GestureRecognizers.Add(tapLoc);
+
+            tapLoc.Tapped += (s,e) => TapLoc_Tapped(s,e,NameLoc,TimeLoc);
 
         }
 

@@ -8,6 +8,7 @@ namespace GuideMe
     public class GridLocation : StackLayout
     {
         public Image imageBall;
+        public Image imagePlace;
         public Label GoogleM;
         public Label NameLoc;
         public Label lblRaiting;
@@ -17,8 +18,9 @@ namespace GuideMe
         public Grid gridLoc;
         public Image GoogleIcon;
         public TapGestureRecognizer tapLogo;
-        public GridLocation(string Name, string urlImage, string urlLoc, string raiting)
+        public GridLocation(string urlPlace, string Name, string urlImage, string urlLoc, string raiting)
         {
+            imagePlace = new Image();
             imageBall = new Image();
             GoogleM = new Label();
             NameLoc = new Label();
@@ -38,6 +40,7 @@ namespace GuideMe
             gridLoc.BackgroundColor = Color.White;
             gridLoc.HorizontalOptions = LayoutOptions.FillAndExpand;
             gridLoc.Padding = 0;
+            gridLoc.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
             gridLoc.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
             gridLoc.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
             gridLoc.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(8, GridUnitType.Star) });
@@ -82,15 +85,22 @@ namespace GuideMe
             stkRaiting.Children.Add(lblRaiting);
             stkRaiting.Children.Add(imageStar);
 
+            imagePlace.Source = ImageSource.FromUri(new Uri(urlPlace));
+            imagePlace.HeightRequest = 150;
+            imagePlace.HorizontalOptions = LayoutOptions.CenterAndExpand;
+            imagePlace.VerticalOptions = LayoutOptions.CenterAndExpand;
+
+
             imageBall.Source = ImageSource.FromUri(new Uri(urlImage));
             imageBall.HeightRequest = 25;
             imageBall.HorizontalOptions = LayoutOptions.CenterAndExpand;
             imageBall.VerticalOptions = LayoutOptions.CenterAndExpand;
 
-            gridLoc.Children.Add(NameLoc, 0, 1, 0, 1);
-            gridLoc.Children.Add(imageBall, 1, 2, 0, 1);
-            gridLoc.Children.Add(stkBtn, 0, 1, 1, 2);
-            gridLoc.Children.Add(stkRaiting, 1, 2, 1, 2);
+            gridLoc.Children.Add(imagePlace, 0, 2, 0, 1);
+            gridLoc.Children.Add(NameLoc, 0, 1, 1, 2);
+            gridLoc.Children.Add(imageBall, 1, 2, 1, 2);
+            gridLoc.Children.Add(stkBtn, 0, 1, 2, 3);
+            gridLoc.Children.Add(stkRaiting, 1, 2, 2, 3);
 
             Margin = 10;
             Children.Add(gridLoc);
